@@ -2,9 +2,14 @@ import { CON_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   let { resData } = props;
-  let { name, costForTwo, cuisines, cloudinaryImageId, avgRating, sla } =
-    resData.info;
-
+  let {
+    name,
+    costForTwo,
+    cuisines,
+    cloudinaryImageId,
+    avgRating,
+    sla,
+  } = resData.info;
   return (
     <div className="res-card">
       {cloudinaryImageId.includes(".jpg") ? (

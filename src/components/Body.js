@@ -11,10 +11,10 @@ const Body = () => {
 
   const fetchData = async () => {
     let res = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const data = await res.json();
-    // console.dir(data);
+  
     setList(
       (list =
         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -22,9 +22,9 @@ const Body = () => {
         data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants)
     );
-    setFilterRestaurant(list)
+    setFilterRestaurant(list);
   };
-
+    
   if (!list || list.length == 0) {
     return <Shimmer />;
   }

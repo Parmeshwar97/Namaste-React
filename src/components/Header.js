@@ -1,7 +1,7 @@
 import logo from "../../assets/large.png";
 import React, { useState } from "react";
 const Header = () => {
-  let [btnName, setBtnName] = useState("login");
+  let [btnName, setBtnName] = useState("Login");
   return (
     <div className="header">
       <div className="logo-container">
