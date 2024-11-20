@@ -1,19 +1,15 @@
-import { CON_URL } from "../utils/constants";
+import { CON_URL, JPG_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   let { resData } = props;
-  let {
-    name,
-    costForTwo,
-    cuisines,
-    cloudinaryImageId,
-    avgRating,
-    sla,
-  } = resData.info;
+  let { name, costForTwo, cuisines, cloudinaryImageId, avgRating, sla } =
+    resData.info;
+  let img = cloudinaryImageId.toLowerCase();
+
   return (
     <div className="res-card">
-      {cloudinaryImageId.includes(".jpg") ? (
-        <img className="res-img" src={cloudinaryImageId} />
+      {img.includes(".jpg") ? (
+        <img className="res-img" src={JPG_URL + cloudinaryImageId} />
       ) : (
         <img className="res-img" src={CON_URL + cloudinaryImageId} />
       )}

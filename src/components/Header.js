@@ -1,5 +1,7 @@
 import logo from "../../assets/large.png";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   return (
@@ -9,14 +11,21 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About Us</NavLink>
+          </li>
+          <li>
+            {" "}
+            <NavLink to="/about">Contact Us</NavLink>
+          </li>
           <li>Cart</li>
           <button
             onClick={() => {
               setBtnName(
-                btnName === "Login" ? (btnName = "Logout") : btnName = "Login"
+                btnName === "Login" ? (btnName = "Logout") : (btnName = "Login")
               );
             }}
           >
