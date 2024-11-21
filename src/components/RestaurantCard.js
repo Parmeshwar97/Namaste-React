@@ -4,6 +4,7 @@ const RestaurantCard = (props) => {
   let { resData } = props;
   let { name, costForTwo, cuisines, cloudinaryImageId, avgRating, sla } =
     resData.info;
+    
   let img = cloudinaryImageId.toLowerCase();
 
   return (
