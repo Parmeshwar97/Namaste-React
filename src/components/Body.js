@@ -1,9 +1,10 @@
 import RestaurantCard from "../components/RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { NavLink } from "react-router-dom";
+import { RES_API } from "../utils/constants";
 
 const Body = () => {
-
   let [list, setList] = useState([]);
   let [filteredRestaurant, setFilterRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -12,28 +13,29 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    let res = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const data = await res.json();
-  
-    setList(
-      (list =
-        data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants ||
-        data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants)
-    );
-    setFilterRestaurant(list);
+    try {
+      let res = await fetch(RES_API);
+      const data = await res.json();
+
+      setList(
+        (list =
+          data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants ||
+          data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants)
+      );
+      setFilterRestaurant(list);
+    } catch (error) {
+      console.log(error);
+    }
   };
-    
+
   if (!list || list.length == 0) {
     return <Shimmer />;
   }
   function handleChange(e) {
     setSearchText(e.target.value);
   }
-  const Notfound = () => <h1>Item Not Found!</h1>;
 
   return (
     <div className="body">
@@ -62,7 +64,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const newList = data.filter((res) => res.info.avgRating > 4);
+            const newList = list.filter((res) => res.info.avgRating > 4);
             setList(newList);
           }}
         >
@@ -71,8 +73,13 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-        {filteredRestaurant.map((restaurants, i) => (
-          <RestaurantCard key={restaurants.info.id} resData={restaurants} />
+        {filteredRestaurant.map((restaurants) => (
+          <NavLink
+            key={restaurants.info.id}
+            to={`/restaurant/${restaurants.info.id}`}
+          >
+            <RestaurantCard resData={restaurants} />
+          </NavLink>
         ))}
       </div>
     </div>
