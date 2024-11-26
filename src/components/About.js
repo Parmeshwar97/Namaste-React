@@ -1,4 +1,4 @@
-import Counter from "../../class-componets/Counter";
+import Counter from "../../class-components/Counter";
 const About = () => {
   return (
     <>
@@ -8,7 +8,7 @@ const About = () => {
           Consistency is key to growth the difference is nothing in consistency!
         </h3>
       </div>
-      <Counter name='pamu'/>
+      <Counter name="pamu" /> 
     </>
   );
 };
