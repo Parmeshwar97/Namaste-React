@@ -1,15 +1,37 @@
 import Counter from "../../class-components/Counter";
+import UserClass from '../components/UserClass'
 const About = () => {
   return (
-    <>
       <div>
-        <h1>This is About Page</h1>
+        <h1>About Class Component</h1>
         <h3>
-          Consistency is key to growth the difference is nothing in consistency!
+            User Information
         </h3>
+        <UserClass name={"Pamu"} location="Jalgaon,Maharashtra" contact="parmeshwarpatil9763@gmail.com"/>
       </div>
-      <Counter name="pamu" /> 
-    </>
   );
 };
 export default About;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -67,3 +67,8 @@ button {
 .more-btn {
   text-align: center;
 }
+
+.user-card{
+  border: 1px solid black;
+  padding: .5rem;
+}
