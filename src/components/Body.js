@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { NavLink } from "react-router-dom";
 import { RES_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   let [list, setList] = useState([]);
@@ -30,13 +31,19 @@ const Body = () => {
     }
   };
 
-  if (!list || list.length == 0) {
-    return <Shimmer />;
-  }
   function handleChange(e) {
     setSearchText(e.target.value);
   }
 
+  const onlineStatus = useOnlineStatus();
+
+  if (!onlineStatus){
+    return <h1>You are Offline.</h1>;
+  }
+
+  if (!list || list.length == 0) {
+    return <Shimmer />;
+  }
   return (
     <div className="body">
       <div className="filter">
