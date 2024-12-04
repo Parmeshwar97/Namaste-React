@@ -38,16 +38,16 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/restaurant/:resId",
-        element: <RestaurantMenu />,
-      },
-      {
         path: "/shopping",
         element: (
           <Suspense feedBack={<h1>Loading...</h1>}>
             <Shopping />
           </Suspense>
         ),
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
       },
     ],
   },
