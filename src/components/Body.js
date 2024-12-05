@@ -37,7 +37,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  if (!onlineStatus){ 
+  if (!onlineStatus) {
     return <h1>You are Offline.</h1>;
   }
 
@@ -52,11 +52,11 @@ const Body = () => {
           placeholder="search"
           value={searchText}
           type="text"
-          className="search"
+          className="m-4 border-slate-950 p-2"
         />
 
         <button
-          className="search-btn"
+          className="bg-lime-500 rounded-md px-2 mx-3"
           onClick={() => {
             setFilterRestaurant(
               list.filter((res) =>
@@ -79,7 +79,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap gap-5">
         {filteredRestaurant.map((restaurants) => (
           <NavLink
             key={restaurants.info.id}

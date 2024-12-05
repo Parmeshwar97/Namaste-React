@@ -6,12 +6,12 @@ const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between lg:bg-pink-100 bg-slate-600 sm:bg-orange-100">
       <div className="logo-container">
         <img className="w-56" src={logo} />
       </div>
-      <di>
-        <ul className="flex">
+      <div className="flex items-center">
+        <ul className="flex gap-4 p-3 ">
           <li>Online Status : {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             <NavLink to="/">Home</NavLink>
@@ -38,7 +38,7 @@ const Header = () => {
           </button>
           {}
         </ul>
-      </di>
+      </div>
     </div>
   );
 };

@@ -4,15 +4,15 @@ const RestaurantCard = (props) => {
   let { resData } = props;
   let { name, costForTwo, cuisines, cloudinaryImageId, avgRating, sla } =
     resData.info;
-    
+
   let img = cloudinaryImageId.toLowerCase();
 
   return (
-    <div className="res-card">
+    <div className="w-60 p-3 rounded-md bg-stone-400 min-h-fit h-[450px]">
       {img.includes(".jpg") ? (
-        <img className="res-img" src={JPG_URL + cloudinaryImageId} />
+        <img className="w-56" src={JPG_URL + cloudinaryImageId} />
       ) : (
-        <img className="res-img" src={CON_URL + cloudinaryImageId} />
+        <img className="w-56" src={CON_URL + cloudinaryImageId} />
       )}
 
       <h3>{name}</h3>
