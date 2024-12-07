@@ -52,7 +52,7 @@ const Body = () => {
           placeholder="search"
           value={searchText}
           type="text"
-          className="m-4 border-slate-950 p-2"
+          className="my-4 p-2"
         />
 
         <button
