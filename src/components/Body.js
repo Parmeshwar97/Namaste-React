@@ -1,4 +1,6 @@
-import RestaurantCard from "../components/RestaurantCard";
+import RestaurantCard, {
+  withPromotedLabel,
+} from "../components/RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { NavLink } from "react-router-dom";
@@ -30,6 +32,8 @@ const Body = () => {
       console.log(error);
     }
   };
+
+  const PromotedCard = withPromotedLabel(RestaurantCard);
 
   function handleChange(e) {
     setSearchText(e.target.value);
@@ -85,7 +89,12 @@ const Body = () => {
             key={restaurants.info.id}
             to={`/restaurant/${restaurants.info.id}`}
           >
-            <RestaurantCard resData={restaurants} />
+            {console.log(restaurants.info)}
+            {restaurants.info.promoted ? (
+              <PromotedCard resData={restaurants} />
+            ) : (
+              <RestaurantCard resData={restaurants} />
+            )}
           </NavLink>
         ))}
       </div>
