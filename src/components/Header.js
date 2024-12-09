@@ -6,9 +6,11 @@ const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="flex justify-between lg:bg-pink-100 bg-slate-600 sm:bg-orange-100">
+    <div className="flex justify-between fixed top-0 mt-0 mb-10 z-0 w-full px-8 items-center h-26 lg:bg-orange-100 bg-slate-600 sm:bg-pink-100">
       <div className="logo-container">
-        <img className="w-56" src={logo} />
+        <NavLink to="/">
+          <img className="w-1/5 rounded-full" src={logo} />{" "}
+        </NavLink>
       </div>
       <div className="flex items-center">
         <ul className="flex gap-4 p-3 ">

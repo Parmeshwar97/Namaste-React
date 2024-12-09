@@ -10,7 +10,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 const AppLayout = () => {
   return (
-    <div className="px-5">
+    <div>
       <Header />
       <Outlet />
     </div>

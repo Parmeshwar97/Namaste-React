@@ -49,14 +49,14 @@ const Body = () => {
     return <Shimmer />;
   }
   return (
-    <div className="body">
+    <div className="px-16 mt-24" >
       <div className="filter">
         <input
           onChange={handleChange}
-          placeholder="search"
+          placeholder="Search"
           value={searchText}
           type="text"
-          className="my-4 p-2"
+          className="my-4 ml-8 px-2 py-1 text-lg bg-stone-200 rounded-md"
         />
 
         <button
@@ -83,7 +83,7 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-y-8 justify-evenly">
         {filteredRestaurant.map((restaurants) => (
           <NavLink
             key={restaurants.info.id}
