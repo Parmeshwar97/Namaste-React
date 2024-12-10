@@ -2,10 +2,14 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategories from "./RestourantCategories";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
   // let [restaurantMenu, setRestaurantMenu] = useState(null);
   let { resId } = useParams();
+
+  let [isVisible, setIsVisible] = useState(false);
+  let [showIndex, setShowIndex] = useState(null);
 
   const restaurantMenu = useRestaurantMenu(resId);
 
@@ -35,8 +39,8 @@ const RestaurantMenu = () => {
       </p>
       {/* Categories Accordions */}
       <div className="my-6">
-        {Categories.map((c) => (
-          <RestaurantCategories data={c?.card?.card} />
+        {Categories.map((c,index) => (
+          <RestaurantCategories data={c?.card?.card} setShowIndex={()=>setShowIndex(index)} isVisible={index===showIndex?true:false} setIsVisible={setIsVisible}/>
         ))}
       </div>
     </div>

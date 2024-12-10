@@ -6,7 +6,7 @@ const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="flex justify-between fixed top-0 mt-0 mb-10 z-0 w-full px-8 items-center h-26 lg:bg-orange-100 bg-slate-600 sm:bg-pink-100">
+    <div className="flex z-10 justify-between fixed top-0 mt-0 mb-10 w-full px-8 items-center h-26 lg:bg-orange-100 bg-slate-600 sm:bg-pink-100">
       <div className="logo-container">
         <NavLink to="/">
           <img className="w-1/5 rounded-full" src={logo} />{" "}
