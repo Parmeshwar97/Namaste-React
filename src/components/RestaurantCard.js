@@ -1,4 +1,4 @@
-import { CON_URL, JPG_URL } from "../utils/constants";
+import { CDN_URL, JPG_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   let { resData } = props;
@@ -12,7 +12,7 @@ const RestaurantCard = (props) => {
       {img.includes(".jpg") ? (
         <img className="w-full h-48" src={JPG_URL + cloudinaryImageId} />
       ) : (
-        <img className="w-full h-48" src={CON_URL + cloudinaryImageId} />
+        <img className="w-full h-48" src={CDN_URL + cloudinaryImageId} />
       )}
 
       <h3 className="font-bold text-lg my-2">{name}</h3>

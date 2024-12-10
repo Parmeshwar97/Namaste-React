@@ -21,11 +21,12 @@ const RestaurantMenu = () => {
     restaurantMenu.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards[2]?.card
       .card?.itemCards;
 
-  console.log(
-    restaurantMenu.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards
-  );
-
-  const Categories = restaurantMenu.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter((c)=>c.card?.card?.['@type']==='type.googleapis.com/swiggy.presentation.food.v2.ItemCategory')
+  const Categories =
+    restaurantMenu.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
   return (
     <div className="mt-28 px-5 text-center">
       <h1 className="font-bold text-lg">{name}</h1>
@@ -33,7 +34,11 @@ const RestaurantMenu = () => {
         {cuisines} - {costForTwoMessage}
       </p>
       {/* Categories Accordions */}
-      {Categories.map((c)=> <RestaurantCategories data={c?.card?.card}/>)}
+      <div className="my-6">
+        {Categories.map((c) => (
+          <RestaurantCategories data={c?.card?.card} />
+        ))}
+      </div>
     </div>
   );
 };

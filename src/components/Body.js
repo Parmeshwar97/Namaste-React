@@ -89,7 +89,6 @@ const Body = () => {
             key={restaurants.info.id}
             to={`/restaurant/${restaurants.info.id}`}
           >
-            {console.log(restaurants.info)}
             {restaurants.info.promoted ? (
               <PromotedCard resData={restaurants} />
             ) : (
