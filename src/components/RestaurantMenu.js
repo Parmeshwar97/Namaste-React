@@ -40,7 +40,7 @@ const RestaurantMenu = () => {
       {/* Categories Accordions */}
       <div className="my-6">
         {Categories.map((c,index) => (
-          <RestaurantCategories data={c?.card?.card} setShowIndex={()=>setShowIndex(index)} isVisible={index===showIndex?true:false} setIsVisible={setIsVisible}/>
+          <RestaurantCategories data={c?.card?.card} setShowIndex={()=>setShowIndex(index)} isVisible={index===showIndex?true:false}/>
         ))}
       </div>
     </div>

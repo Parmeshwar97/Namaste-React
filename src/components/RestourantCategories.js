@@ -3,7 +3,6 @@ import ItemsList from "./ItemsList";
 const RestaurantCategories = ({
   data,
   isVisible,
-  setIsVisible,
   setShowIndex,
 }) => {
   console.log(data);
@@ -13,10 +12,10 @@ const RestaurantCategories = ({
       <div
         className="flex cursor-pointer justify-between px-2 text-lg"
         onClick={() => {
-          setIsVisible(!isVisible);
           setShowIndex();
         }}
       >
+
         <h2 className="font-bold">
           {data.title} ({data.itemCards.length})
         </h2>

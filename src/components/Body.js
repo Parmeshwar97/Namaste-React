@@ -1,16 +1,21 @@
 import RestaurantCard, {
   withPromotedLabel,
 } from "../components/RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import Shimmer from "./Shimmer";
 import { NavLink } from "react-router-dom";
 import { RES_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/contextApi";
+
 
 const Body = () => {
   let [list, setList] = useState([]);
   let [filteredRestaurant, setFilterRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const {setBindUser} = useContext(userContext);
+
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -49,14 +54,14 @@ const Body = () => {
     return <Shimmer />;
   }
   return (
-    <div className="px-16 mt-24" >
+    <div className="px-16 mt-24">
       <div className="filter">
         <input
           onChange={handleChange}
           placeholder="Search"
           value={searchText}
           type="text"
-          className="my-4 ml-8 px-2 py-1 text-lg bg-stone-200 rounded-md"
+          className="my-4 ml-8 px-2 text-lg bg-stone-200 rounded-md border-black"
         />
 
         <button
@@ -81,8 +86,13 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
-      </div>
 
+        <input
+          className="my-4 ml-8 px-2 text-lg bg-stone-200 rounded-md border-black"
+          type="text"
+          onChange={(e)=>setBindUser(e.target.value)}
+        />
+      </div>
       <div className="flex flex-wrap gap-y-8 justify-evenly">
         {filteredRestaurant.map((restaurants) => (
           <NavLink
