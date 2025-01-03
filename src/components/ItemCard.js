@@ -1,11 +1,13 @@
 import { CDN_URL, JPG_URL } from "../utils/constants";
 import userContext from "../utils/contextApi";
-import { useContext } from "react";
+import { useContext, useDebugValue } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/slices/cartSlice";
 
 const ItemCard = ({ info }) => {
   //! using Context
   const { user } = useContext(userContext);
-  // console.log(info);
+  const dispatch = useDispatch();
   return (
     <div className="border-b-4 text-left flex justify-between px-2 py-3 my-4 w-full">
       <div className="w-4/6">
@@ -24,7 +26,10 @@ const ItemCard = ({ info }) => {
       </div>
 
       <div className="relative">
-        <button className="bg-white px-6 py-2 rounded-lg text-green-600 font-bold absolute bottom-1 right-8 shadow-lg">
+        <button
+          className="bg-white px-6 py-2 rounded-lg text-green-600 font-bold absolute bottom-1 right-8 shadow-lg"
+          onClick={() => dispatch(addItem("pizza"))}
+        >
           Add +
         </button>
         {info?.imageId.includes(".jpg") ? (

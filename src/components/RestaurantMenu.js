@@ -9,7 +9,7 @@ const RestaurantMenu = () => {
   let { resId } = useParams();
 
   let [isVisible, setIsVisible] = useState(false);
-  let [showIndex, setShowIndex] = useState(null);
+  let [showIndex, setShowIndex] = useState(0);
 
   const restaurantMenu = useRestaurantMenu(resId);
 
@@ -39,8 +39,13 @@ const RestaurantMenu = () => {
       </p>
       {/* Categories Accordions */}
       <div className="my-6">
-        {Categories.map((c,index) => (
-          <RestaurantCategories data={c?.card?.card} setShowIndex={()=>setShowIndex(index)} isVisible={index===showIndex?true:false}/>
+        {Categories.map((category, index) => (
+          <RestaurantCategories
+            data={category?.card?.card}
+            setShowIndex={() => setShowIndex(index)}
+            setIsVisible={() => setIsVisible(index === showIndex && !isVisible)}
+            isVisible={index === showIndex ? !isVisible : false}
+          />
         ))}
       </div>
     </div>

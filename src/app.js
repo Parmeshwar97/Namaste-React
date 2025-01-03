@@ -8,6 +8,9 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import userContext from "./utils/contextApi";
+import {Provider} from 'react-redux';
+import appStore from "./utils/appStore";
+
 
 const AppLayout = () => {
   const [bindUser,setBindUser] = useState('');
@@ -19,12 +22,14 @@ const AppLayout = () => {
     //2. We can share data (eg.states, methods etc) from component.
 
 
-    <userContext.Provider value={{ user: bindUser,setBindUser }}>
-      <div>
-        <Header />
-        <Outlet />
-      </div>
-    </userContext.Provider>
+    <Provider store={appStore}>
+      <userContext.Provider value={{ user: bindUser,setBindUser }}>
+        <div>
+          <Header />
+          <Outlet />
+        </div>
+      </userContext.Provider>
+    </Provider>
   );
 };
 

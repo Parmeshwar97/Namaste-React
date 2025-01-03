@@ -30,14 +30,15 @@ const RestaurantCard = (props) => {
 
 //Hight order component....
 export const withPromotedLabel = () => {
-  return (props) => {
+  function myComp(props) {
     return (
       <div>
         <label>PROMOTED</label>
         <RestaurantCard {...props} />
       </div>
     );
-  };
+  }
+  return myComp;
 };
 
 export default RestaurantCard;

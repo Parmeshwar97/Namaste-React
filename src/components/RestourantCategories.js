@@ -4,18 +4,17 @@ const RestaurantCategories = ({
   data,
   isVisible,
   setShowIndex,
+  setIsVisible,
 }) => {
-  console.log(data);
-
   return (
     <div className="border-t-2 mx-auto bg-gray-50 w-1/2 py-4 border-b-[15px]">
       <div
         className="flex cursor-pointer justify-between px-2 text-lg"
         onClick={() => {
           setShowIndex();
+          setIsVisible();
         }}
       >
-
         <h2 className="font-bold">
           {data.title} ({data.itemCards.length})
         </h2>

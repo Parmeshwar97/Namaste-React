@@ -2,9 +2,14 @@ import logo from "../../assets/large.png";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
+
+
 const Header = () => {
   let [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  const cartItems = useSelector((store)=> store.cart.items.length);
+
   return (
     <div className="flex z-10 justify-between fixed top-0 mt-0 mb-10 w-full px-8 items-center h-26 lg:bg-orange-100 bg-slate-600 sm:bg-pink-100">
       <div className="logo-container">
@@ -28,7 +33,7 @@ const Header = () => {
             {" "}
             <NavLink to="/contact">Contact Us</NavLink>
           </li>
-          <li>Cart</li>
+          <li>Cart{cartItems}</li>
           <button
             onClick={() => {
               setBtnName(
